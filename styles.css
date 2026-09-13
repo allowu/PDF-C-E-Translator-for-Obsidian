@@ -277,6 +277,8 @@
 }
 
 .pdf-translator-outline-panel {
+	display: flex;
+	flex-direction: column;
 	border-right: var(--border-width) solid var(--background-modifier-border);
 }
 
@@ -333,11 +335,97 @@
 }
 
 .pdf-translator-outline-list {
-	height: calc(100% - 52px);
+	flex: 1 1 auto;
+	min-height: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
-	padding: var(--size-4-2) 0 var(--size-4-6);
+	padding: var(--size-4-1) 0 var(--size-4-6);
 	scrollbar-width: thin;
+}
+
+.pdf-translator-outline-tools {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 36px;
+	align-items: center;
+	gap: var(--size-4-1);
+	padding: var(--size-4-2);
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
+}
+
+.pdf-translator-outline-search {
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	height: 32px;
+}
+
+.pdf-translator-outline-tools .pdf-translator-toolbar-button {
+	width: 32px;
+	height: 32px;
+}
+
+.pdf-translator-outline-meta {
+	padding: var(--size-4-1) var(--size-4-3);
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
+	color: var(--text-faint);
+	font-size: var(--font-ui-smaller);
+}
+
+.pdf-translator-outline-tree {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pdf-translator-outline-tree .pdf-translator-outline-tree {
+	padding-left: var(--size-4-3);
+}
+
+.pdf-translator-outline-node.is-filtered-out {
+	display: none;
+}
+
+.pdf-translator-outline-branch > summary {
+	list-style-position: outside;
+}
+
+.pdf-translator-outline-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+}
+
+.pdf-translator-outline-branch > .pdf-translator-outline-row {
+	grid-template-columns: 12px minmax(0, 1fr) auto;
+	cursor: pointer;
+}
+
+.pdf-translator-outline-branch > .pdf-translator-outline-row::before {
+	content: ">";
+	color: var(--text-faint);
+	font-size: var(--font-ui-small);
+	transform: rotate(0deg);
+	transition: transform 120ms ease;
+}
+
+.pdf-translator-outline-branch[open] > .pdf-translator-outline-row::before {
+	transform: rotate(90deg);
+}
+
+.pdf-translator-outline-page {
+	min-width: 2.25rem;
+	padding-right: var(--size-4-3);
+	color: var(--text-faint);
+	font-size: var(--font-ui-smaller);
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.pdf-translator-outline-empty {
+	padding: var(--size-4-6) var(--size-4-4);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	text-align: center;
 }
 
 .pdf-translator-outline-item {
@@ -348,7 +436,7 @@
 	height: auto;
 	min-height: 38px;
 	overflow-wrap: anywhere;
-	padding: var(--size-4-2) var(--size-4-4);
+	padding: var(--size-4-2) var(--size-4-2) var(--size-4-2) var(--size-4-3);
 	border: 0;
 	border-left: 3px solid transparent;
 	border-radius: 0;
@@ -358,6 +446,11 @@
 	line-height: 1.4;
 	text-align: left;
 	white-space: normal;
+}
+
+.pdf-translator-outline-item:disabled {
+	cursor: default;
+	opacity: 0.7;
 }
 
 .pdf-translator-outline-item:hover {
