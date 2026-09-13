@@ -1,0 +1,9 @@
+{
+	"id": "paper-pdf-translator",
+	"name": "PDF Translator",
+	"version": "1.2.1",
+	"minAppVersion": "1.11.4",
+	"description": "Obsidian PDF reader with automatic English detection and DeepSeek translation.",
+	"author": "ju",
+	"isDesktopOnly": false
+}
