@@ -1,6 +1,6 @@
 {
 	"id": "pdf-c-e-translator",
-	"name": "PDF C-E Translator for Obsidian",
+	"name": "PDF CE Translator",
 	"version": "1.3.2",
 	"minAppVersion": "1.11.4",
 	"description": "Bilingual Chinese-English PDF reader and AI translator for Obsidian.",
